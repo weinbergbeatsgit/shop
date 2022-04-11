@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Weinpaket",
+        "image": "",
+        "description":"2 Flaschen Wein deiner Wahl",
+        "price" : 45.00
+    },    
+    {
+        "name": "Sektpaket",
+        "image": "",
+        "description":"2 Flaschen Secco deiner Wahl",
+        "price" : 45.00
+    },
+    {
+        "name": "Glas",
+        "image": "",
+        "description":"1 Glas mit Willkommensgetränk",
+        "price" : 4.50
+    } 
+]
