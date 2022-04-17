@@ -1,22 +1,26 @@
 [
     {
-        "question": "Welche Pakete gibtes?",
-        "answer":"Wir bieten zwei verschiedene Pakete an. Ein Weinpaket und ein Sektpaket. Dazu kannst du dann passend zu deiner Gruppengröße die Anzahl an Gläsern dazu kaufen."
-    },    
+        "question": "Welche Pakete gibt es?",
+        "answer": "Wir bieten zwei verschiedene Pakete an. Ein Weinpaket und ein Sektpaket. Dazu kannst du dann passend zu deiner Gruppengröße die Anzahl an Gläsern inkl. Willkommensgetränk wählen."
+    },
     {
         "question": "Welche Vorteile habe ich durch den Kauf eines Paketes?",
-        "answer":"Durch den Kauf eines Paketes bekommst du attraktive Rabbate und eine kleine Überraschung"
+        "answer": "Durch den Kauf eines Paketes profitierst du attraktiven Rabbaten und unterstützt so die einzigartigen Weinberg Beats. Außerdem haben wir noch eine kleine Überraschung für euch vorbereitet."
     },
     {
-        "question": "Wo bekomme ich mein Paket her?",
-        "answer":"Durch den Kauf eines Paketes bekommst du attraktive Rabbate und eine kleine Überraschung"
-    },    {
-        "question": "Welche Zahlungsmöglichkeiten gibt es?",
-        "answer":"Durch den Kauf eines Paketes bekommst du attraktive Rabbate und eine kleine Überraschung"
+        "question": "Brauche ich ein Paket um auf die Weinberg Beats zu gehen?",
+        "answer": "Nein, du kannst natürlich auch ohne Vorverkaufspaket die Weinberg Beats besuchen, profitierst dann aber nicht von den Vorteilen des Vorverkaufs."
     },
     {
-        "question": "Welche Zahlungsmöglichkeiten gibt es?",
-        "answer":"Durch den Kauf eines Paketes bekommst du attraktive Rabbate und eine kleine Überraschung"
-    }    
-
+        "question": "Welche Zahlungsmöglichkeiten werden angeboten?",
+        "answer": "Du hast die Möglichkeit zwischen Paypal, Kreditkarte, Sofortüberweisung, Giropay oder Lastschrift zu wählen."
+    },
+    {
+        "question": "Wie bekomme ich mein Paket?",
+        "answer": "Nach dem Abschluss der Bestellung erhälst du eine Bestätigungsmail von uns. Diese Mail bringst du einfach digital oder ausgedruckt zu den Weinberg Beats mit und erhälst dort am Willkommenstand dein Vorverkaufspaket."
+    },
+    {
+        "question": "Wann muss ich mein Paket abholen?",
+        "answer": "Du kannst dein Paket an einem der beiden Veranstaltungstage bis 24:00 Uhr abholen."
+    }
 ]

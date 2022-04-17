@@ -11,7 +11,7 @@ const formatPrice = (price) => {
 
 const CartItem = ({ cartItem, productName }) => {
     return (
-        <div className="flex-row justify-space-between cart-item">
+        <div className="flex-row justify-space-between cart-item margin-top-10">
             <label className="text-overflow-ellipsis flex-grow">{cartItem.name}</label>
             <label> {cartItem.anzahl}  x <label className="price-label">{formatPrice(cartItem.price)}</label> €</label>
         </div>

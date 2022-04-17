@@ -42,8 +42,10 @@ const Packages = props => {
 
                         <img src={process.env.PUBLIC_URL + '/icons/' + props.packageItem.image} className="variant-icon" alt="" />
                         <p>{props.packageItem.description}</p>
-                        <div>
+                        <div className='flex-column align-center'>
                             <label>{formatPrice(props.packageItem.price)} €</label>
+                            {props.index < 2 ? 
+                            <label className='pfand'> zzgl. 4,00€ Pfand</label> : ''}
                         </div>
                     </div>
                     <div className="flex-row justify-center gap-10 align-center">
@@ -51,7 +53,7 @@ const Packages = props => {
                         <button className="p-button p-component minus plus-minus-button" onClick={() => rm()}>
                             <img src={minus} alt="-" className='plus-minus-icon' />
                         </button>
-                        <h4>{props.packageItem.anzahl}</h4>
+                        {props.packageItem.anzahl > 0 ? <h4>{props.packageItem.anzahl}</h4> : ''}
                         <button className="p-button p-component minus plus-minus-button" onClick={() => add()}>
                             <img src={plus} alt="+" className='plus-minus-icon' />
                         </button>

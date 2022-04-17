@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vorverkauf-dev-205456-authRole",
+      "UnauthRoleArn": "arn:aws:iam::518694115718:role/amplify-vorverkauf-dev-205456-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::518694115718:role/amplify-vorverkauf-dev-205456-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-vorverkauf-dev-205456-deployment",
+      "UnauthRoleName": "amplify-vorverkauf-dev-205456-unauthRole",
+      "StackName": "amplify-vorverkauf-dev-205456",
+      "StackId": "arn:aws:cloudformation:eu-central-1:518694115718:stack/amplify-vorverkauf-dev-205456/3800d740-bb5b-11ec-aa1f-066c3a17a38a",
+      "AmplifyAppId": "d3dtgspzh0rje0"
+    }
+  }
+}

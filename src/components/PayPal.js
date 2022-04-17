@@ -2,44 +2,25 @@ import React, { useRef, useEffect } from "react";
 
 const PayPal = props => {
   const paypal = useRef();
-  const disable = props.disable;
 
   useEffect(() => {
-    
-
-    window.paypal
+        window.paypal
       .Buttons({
 
         onInit: function(data, actions) {
-          console.log(disable);
-          if(disable){
+          if(props.disable){
             actions.disable();
           }
 
-          document.getElementById('agb')
-
-          .addEventListener('change', function(event) {
-  
-  
-            // Enable or disable the button when it is checked or unchecked
-  
+          document.getElementById('agb').addEventListener('change', function(event) {
             if (event.target.checked) {
-  
               actions.enable();
-  
             } else {
-  
               actions.disable();
-  
             }
-  
           });
         },
         onClick: function() {
-
-
-          // Show a validation error if the checkbox is not checked
-    
           if (!document.getElementById('agb').checked) {
             document.getElementById('agb-label').classList.add('error');
           } else{
@@ -63,9 +44,11 @@ const PayPal = props => {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
+          console.log("Finish order" + order);
           props.finishOrder();
         },
         onError: (err) => {
+          console.log("Cancel order" + err);
           props.cancelOrder();
         },
       })

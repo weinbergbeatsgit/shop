@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Packages from './packages';
 import Contactdata from './contact';
+import Summery from './summery';
 import Payment from './payment';
 import Description from './description';
 import emailjs from '@emailjs/browser';
+import team from '../images/team.jpeg'
 
 const Main = props => {
   const [step, setStep] = useState(0);
@@ -12,9 +14,9 @@ const Main = props => {
 
   const handleChanges = (packageItem, index) => {
     props.packages[index] = packageItem;
-    if(props.packages[0].anzahl > 0 || props.packages[1].anzahl > 0 ){
-        setValidOrder(true);
-    } else{
+    if (props.packages[0].anzahl > 0 || props.packages[1].anzahl > 0) {
+      setValidOrder(true);
+    } else {
       setValidOrder(false);
     }
     props.packagesToParent(props.packages, calResult(props.packages));
@@ -29,6 +31,9 @@ const Main = props => {
     var i = 0;
     packageList.map((thisPackage, index) => {
       if (!isNaN(thisPackage.anzahl)) {
+        if (index < 2) {
+          return i += (thisPackage.anzahl * thisPackage.price) + thisPackage.anzahl * 4;
+        }
         return i += (thisPackage.anzahl * thisPackage.price);
       }
     })
@@ -39,6 +44,7 @@ const Main = props => {
   const goHome = () => {
     setStep(0);
     props.stepToParent(0);
+    props.resetPackages();
   }
   const back = () => {
     setStep(step - 1);
@@ -57,19 +63,33 @@ const Main = props => {
   }
 
   const finishOrder = () => {
-    console.log("ghi");
-    emailjs.sendForm('wbb', 'wbb_toCustomer', {vorname:"julian",send_to: "jul.geiss@web.de"}, 'QdHbBmPjMMuxD54QB')
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
 
-    props.resetPackages();
+    var templateParams = {
+      vorname: props.contactInfos.vorname,
+      name:props.contactInfos.name,
+      strasse:props.contactInfos.strasse,
+      hnr:props.contactInfos.hnr,
+      plz:props.contactInfos.plz,
+      ort:props.contactInfos.ort,
+      email:props.contactInfos.email,
+      send_to: props.contactInfos.email,
+      weinpakete:props.packages[0].anzahl > 0 ? props.packages[0].anzahl + " Weinpaket(e)" : '',
+      sektpakete:props.packages[1].anzahl > 0 ? props.packages[1].anzahl + " Sektpaket(e)" : '',
+      glaeser:props.packages[2].anzahl > 0 ? props.packages[2].anzahl + " Gläser" : ''
+    };
+
+
+    emailjs.send('wbb', 'wbb_toCustomer', templateParams, 'QdHbBmPjMMuxD54QB')
+      .then(function (response) {
+        console.log('SUCCESS!', response.status, response.text);
+      }, function (error) {
+        console.log('FAILED...', error);
+      });
     next();
   }
 
   const cancelOrder = () => {
+
   }
 
   let includeStep;
@@ -84,11 +104,11 @@ const Main = props => {
         Los gehts
       </button>
   } else if (step === 1) {
-    stepLabel = "Wähle mindestend ein Paket und deine gewünschte Menge an Gläsern dazu"
+    stepLabel = "Wähle mindestens ein Paket und deine gewünschte Menge an Gläsern dazu"
     includeStep =
       props.packages.map((thisPackage, index) => {
         return (
-          <Packages packageItem={thisPackage} childToParent={handleChanges} />
+          <Packages packageItem={thisPackage} childToParent={handleChanges} index={index} />
         )
       })
 
@@ -103,13 +123,16 @@ const Main = props => {
   } else if (step === 2) {
     stepLabel = "Gib uns deine Kontaktdaten"
 
-    includeStep = <Contactdata childToParent={handleContactChanges} back={back} contactInfos={props.contactInfos}/>
+    includeStep = <Contactdata childToParent={handleContactChanges} back={back} contactInfos={props.contactInfos} />
 
     buttons = "";
   } else if (step === 3) {
     stepLabel = "Wähle deine Zahlunsgart und schließe deine Bestellung ab"
 
-    includeStep = <Payment price={result} finishOrder={finishOrder} cancelOrder={cancelOrder} />
+    includeStep = <div>
+      <Summery contacts={props.contactInfos} cart={props.packages} result={result} />
+      <Payment price={result} finishOrder={finishOrder} cancelOrder={cancelOrder} />
+    </div>
 
     buttons = <div className="flex-row justify-space-between flex-grow">
       <button className="p-button p-component back-button" onClick={() => back()}>
@@ -117,9 +140,11 @@ const Main = props => {
       </button>
     </div>
   } else if (step === 4) {
-    stepLabel = "Viel Dank für deine Bestellung. Du bekommst nun eine Bestätigungsmail von uns mit allen weiteren Infos"
+    stepLabel = "Vielen Dank für deine Bestellung. Du bekommst nun eine Bestätigungsmail von uns mit allen weiteren Infos."
 
-    includeStep = <div />
+    includeStep = <div>
+      <img src={team} className='team-img'/>
+    </div>
 
     buttons = <div className="flex-row justify-space-between flex-grow">
       <button className="p-button p-component minus" onClick={() => goHome()}>
