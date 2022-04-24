@@ -14,7 +14,7 @@ const Description = () => {
             <label className="header_label1">Herzlich Willkommen bei unserem VVK</label>
             <span>
             Ihr könnt den Startschuss von Weinberg-Beats am Sonnenberg kaum noch erwarten? <br/>
-            Sichert euch schon im Voraus euer Wein- oder Sektpaket samt attraktivem Online-Rabatt. 
+            Sichert euch schon im Voraus euer Wein- oder Seccopaket samt attraktivem Online-Rabatt. 
             </span>
 
             <div className='faqPanel flex-column gap-10'>
