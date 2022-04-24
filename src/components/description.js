@@ -13,7 +13,8 @@ const Description = () => {
             <div className="flex-column text-center margin-top-20 gap-10 align-center">
             <label className="header_label1">Herzlich Willkommen bei unserem VVK</label>
             <span>
-                Sehnsüchtigt warten du und deine Freunde auf ... ein cooler Einleitungstext 
+            Ihr könnt den Startschuss von Weinberg-Beats am Sonnenberg kaum noch erwarten? <br/>
+            Sichert euch schon im Voraus euer Wein- oder Sektpaket samt attraktivem Online-Rabatt. 
             </span>
 
             <div className='faqPanel flex-column gap-10'>
