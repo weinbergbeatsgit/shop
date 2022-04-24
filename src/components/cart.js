@@ -52,10 +52,6 @@ const Cart = props => {
                             </div>:''
                             }
 
-                            <div className="flex-row justify-space-between cart-item mobi-hide margin-top-10">
-                                <label className="text-overflow-ellipsis flex-grow">Überraschung</label>
-                                <label> 1  x <label className="price-label">0,00</label> €</label>
-                            </div>
                             <hr className='width-100' />
                             <div className="flex-row justify-space-between cart-item">
                                 <label className="text-overflow-ellipsis flex-grow">Gesamt</label>

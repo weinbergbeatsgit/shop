@@ -46,10 +46,6 @@ const Summery = (props) => {
                                 <label> {anzahl}  x <label className="price-label">{formatPrice(4)}</label> €</label>
                             </div>
                         </div>
-                        <div className="flex-row justify-space-between cart-item margin-top-10">
-                                <label className="text-overflow-ellipsis flex-grow">Überraschung</label>
-                                <label> 1  x <label className="price-label">0,00</label> €</label>
-                            </div>
 
                         <div>
                             <hr className='width-100' />
